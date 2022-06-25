@@ -1,0 +1,48 @@
+.loadBox{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    background-color: #202020;
+    padding-top: 5rem;
+}
+
+.loadImage{
+    width: auto;
+    height: 15rem;
+    padding: 40px;
+}
+
+
+.loadText {
+    position: relative;
+    display: inline-block;
+    font-size: 5rem;
+    text-transform: uppercase;
+    border-bottom: 0.5rem solid;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.loadText::before {
+    content: attr(data-text);
+    position: absolute;
+    font-size: 5rem;
+    border-bottom: 0.5rem solid;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #EC1D24;
+    overflow: hidden;
+    animation: animate 8s linear infinite;
+  }
+
+@keyframes animate {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }

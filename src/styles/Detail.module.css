@@ -1,0 +1,71 @@
+.Container{
+padding-top: 4rem;
+display: grid;
+grid-template-columns: minmax(350px, 30%) minmax(400px, 70%);
+}
+
+.InfoRep{
+    width: 350px;
+}
+
+.InfoDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    background-color: #EC1D24;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0px 20px 20px 0px;
+    padding: 0rem 0rem 1rem 0rem;
+    border: 2px solid #EC1D24;
+    color: #FFFFFF;
+}
+
+.InfoDiv img{
+    height: 350px;
+    width: 100%;
+}
+
+.InfoDiv p{
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-align: left;
+    font-weight: 550;
+}
+
+.ComicsZone{
+    margin: 1rem;
+    /* min-height: 45rem; */
+}
+
+.ComicName{
+background-color: #FFFFFF;
+height: 5rem;
+align-items: center;
+display: flex;
+justify-content: center;
+margin: 1rem;
+border-radius: 15px;
+font-size: larger;
+font-weight: 700;
+color: #202020;
+transition: 0.3s;
+}
+
+.ComicName:hover{
+    transform: scale(1.025);
+    transition: 0.3s;
+}
+
+.Null{
+    height: 20rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    border-radius: 15px;
+    font-size: larger;
+    font-weight: 700;
+    color: #FFFFFF;
+    }

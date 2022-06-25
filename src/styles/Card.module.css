@@ -1,0 +1,28 @@
+.CardBox{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: max-content;
+    background-color: #EC1D24;
+    border-radius: 20px;
+    color: white;
+    border: 2px solid #EC1D24;
+    transition: 0.3s;
+}
+
+.CardBox:hover{
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.CardBox img{
+    height: 300px;
+    width: 300px;
+}
+
+.Name{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+}

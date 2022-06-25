@@ -1,0 +1,26 @@
+.NavBar{
+    background-color: #EC1D24;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2rem;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.Text{
+    padding-right: 5rem;
+    padding-left: 5rem;
+}
+
+#Link:hover{
+    color: #202020;
+}
+
+#Link{
+    text-decoration: none;
+    color: white;
+}
