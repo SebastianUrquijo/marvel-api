@@ -9,7 +9,7 @@ export default function NavBar (){
     const navigate = useNavigate()
     const [isOpen,setIsOpen] = useState(false)
     const [user,setUser] =useState(JSON.parse(localStorage.getItem('userInfo')))
-    console.log(user)
+  
     function handleOut(e){
         e.preventDefault()
         setUser({

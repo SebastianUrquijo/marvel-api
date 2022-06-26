@@ -33,6 +33,12 @@ function handleOnRowsScrollEnd (){
   }
 }
 
+function changeLink(string){
+  var base = string.split("http").pop()
+  var head = "https"
+  return head + base
+}
+
 async function characterAPI(id){
     try {
         const response = await fetch(`https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=fe17a323735b204af39980cf98d3cc2b&hash=95c89371b5df814bf30876b9a108be11`) 
@@ -70,7 +76,7 @@ function scrollToTop(){
     <>
     <div className={style.InfoDiv}>
     <h1>{single.name}</h1>
-    <img src={single.thumbnail ? `${single.thumbnail.path}.${single.thumbnail.extension}`: "#"} alt={`${single.name}.pic`}/>
+    <img src={single.thumbnail ? changeLink(`${single.thumbnail.path}.${single.thumbnail.extension}`): "#"} alt={`${single.name}.pic`}/>
     <h3>Descripción</h3>
     {single.description !== "" ? <p>{single.description}</p> : <p>El personaje no tiene descripción</p>}
     </div>
