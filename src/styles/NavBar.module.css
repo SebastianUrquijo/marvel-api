@@ -12,15 +12,85 @@
 }
 
 .Text{
-    padding-right: 5rem;
-    padding-left: 5rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    z-index: 1;
 }
-
-#Link:hover{
-    color: #202020;
+.Text h3{
+    cursor: pointer;
+    
 }
 
 #Link{
     text-decoration: none;
     color: white;
+    padding: 1.1rem;
+    font-size: x-large;
+    font-weight: bold;
+    border-left: 0.5px white solid;
+    border-right: 0.5px white solid;
+}
+
+#Link2{
+    text-decoration: none;
+    background-color: #000000;
+    color: white;
+    padding: 1.1rem;
+    font-size: x-large;
+    font-weight: bold;
+    border-left: 0.5px white solid;
+    border-right: 0.5px white solid;
+}
+
+.Opened{
+    position: absolute;
+    right: 4rem;
+    top: 4rem;
+    background-color: #000000;
+    width: 300px;
+    height: 8rem;
+    color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.Closed{
+    display: none;
+    position: absolute;
+    right: 4rem;
+    top: 4rem;
+    background-color: #000000;
+    width: 300px;
+    height: 8rem;
+    color: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.UserData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem;
+}
+.UserData span{
+    margin: 1rem;
+}
+
+.UserData button{
+    width: 80%;
+    height: 2rem;
+    background-color: #EC1D24;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.UserData button:hover{
+    background-color: white;
+    color: #EC1D24;
+    transition: 0.3s;
 }

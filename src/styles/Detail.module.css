@@ -2,6 +2,7 @@
 padding-top: 4rem;
 display: grid;
 grid-template-columns: minmax(350px, 30%) minmax(400px, 70%);
+background-color: #202020;
 }
 
 .InfoRep{
@@ -11,6 +12,7 @@ grid-template-columns: minmax(350px, 30%) minmax(400px, 70%);
 .InfoDiv{
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     height: max-content;
     background-color: #EC1D24;

@@ -1,15 +1,25 @@
-import './App.css';
-import {Routes,Route} from 'react-router-dom'
+import React,{Fragment} from 'react';
+import {Routes,Route, useNavigate} from 'react-router-dom'
 import Login from './components/Login';
 import Home from './components/Home';
 import Detail from './components/Detail';
+import PrivateUser from './components/PrivateUser';
+import PrivateLogin from './components/PrivateLogin';
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
 
+const navigate = useNavigate()
+const SERVER = "http://localhost:3001"
+
 const [array,setArray] = useState([])
-const [user,setUser] = useState({})
+const [user,setUser] = useState({
+  email:"",
+  password:""
+})
 
 const [scrollData,setScrollData] = useState()
 const [hasMoreValue, setHasMoreValue] = useState(true)
@@ -43,22 +53,75 @@ async function charactersAPI(){
   }
 }
 
+async function handleLogin(e){
+  e.preventDefault()
+  let response = null
+  try {
+    response = await fetch(`${SERVER}/login`,
+    {method:"POST",
+    headers: {
+        "Content-Type": "application/json",
+    },body: JSON.stringify(user)
+})
+  
+    const result = await response.json()
+    if(result){
+      if(result.msg === "Login success"){
+        localStorage.setItem('userInfo', JSON.stringify(user))
+        setUser({
+          email: "",
+          password: ""
+      })
+      toast.success(`${result.msg}`, {
+        position: toast.POSITION.BOTTOM_RIGHT
+    });
+    navigate("/heroes",{replace:true})
+      }
+      else if(result.msg === "Email or Password does not match"){
+        toast.error(`${result.msg}`, {
+          position: toast.POSITION.BOTTOM_RIGHT
+      });
+      }else{
+        toast.error(`${result.msg}`, {
+            position: toast.POSITION.BOTTOM_RIGHT
+        });
+    }
+
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 
 useEffect(()=>{
   charactersAPI()
 },[])
 
   return (
-    <div className="App">
+    <Fragment>
+      <ToastContainer/>
       <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/heroes' element={<Home 
+
+        <Route path='/' element={
+        <PrivateLogin>
+        <Login user={user} setUser={setUser} handleLogin={handleLogin}/>
+        </PrivateLogin>
+        }/>
+
+        <Route path='/heroes' element={
+        <PrivateUser>
+        <Home 
         array={scrollData} dataLength={scrollData}
         next={handleOnRowsScrollEnd} hasMore={hasMoreValue}
-        />}/>
-        <Route path='/character/:id' element={<Detail/>}/>
+        />
+        </PrivateUser>
+        }/>
+        
+        <Route path='/character/:id' element={<PrivateUser><Detail/></PrivateUser>}/>
       </Routes>
-    </div>
+    </Fragment>
   );
 }
 
