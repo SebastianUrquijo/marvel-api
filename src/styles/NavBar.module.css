@@ -18,10 +18,6 @@
     padding-left: 2rem;
     z-index: 1;
 }
-.Text h3{
-    cursor: pointer;
-    
-}
 
 #Link{
     text-decoration: none;
@@ -33,6 +29,7 @@
     font-weight: bold;
     border-left: 0.5px white solid;
     border-right: 0.5px white solid;
+    cursor: pointer;
 }
 
 #Link2{
@@ -46,6 +43,7 @@
     font-weight: bold;
     border-left: 0.5px white solid;
     border-right: 0.5px white solid;
+    cursor: pointer;
 }
 
 .Opened{

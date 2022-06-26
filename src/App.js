@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
 
 const navigate = useNavigate()
-const SERVER = "http://localhost:3001"
+const SERVER = process.env.REACT_APP_SERVER
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const hash = process.env.REACT_APP_HASH;
