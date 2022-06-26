@@ -5,8 +5,8 @@ function BxUserIcon(props) {
     <svg
       viewBox="0 0 24 24"
       fill="#FFFFFF"
-      height="100px"
-      width="100px"
+      height="1em"
+      width="1em"
       {...props}
     >
       <path

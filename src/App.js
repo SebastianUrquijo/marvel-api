@@ -70,7 +70,7 @@ async function handleLogin(e){
     const result = await response.json()
     if(result){
       if(result.msg === "Login success"){
-        localStorage.setItem('userInfo', JSON.stringify(user))
+        localStorage.setItem('userInfo', JSON.stringify(result.data))
         setUser({
           email: "",
           password: ""

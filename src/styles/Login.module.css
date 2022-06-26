@@ -81,3 +81,8 @@ input:-webkit-autofill:active {
     background-color: #EC1D24;
     color: antiquewhite;
 }
+
+#User{
+    height: 100px;
+    width: 100px;
+}

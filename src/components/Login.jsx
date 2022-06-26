@@ -11,7 +11,7 @@ function onChange(e){
     return(
         <div className={style.Back}>
             <div className={style.LoginBox}>
-                <UserLogo/>
+                <UserLogo id={style.User}/>
                 <p>MARVEL COMICS</p>
                 <form onSubmit={handleLogin}>
                     <input type="email" name ="email" value={user.value} onChange={onChange} placeholder='User email...'/>
