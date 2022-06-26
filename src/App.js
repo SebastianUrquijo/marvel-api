@@ -15,6 +15,9 @@ function App() {
 const navigate = useNavigate()
 const SERVER = "http://localhost:3001"
 
+const apiKey = process.env.REACT_APP_API_KEY;
+const hash = process.env.REACT_APP_HASH;
+
 const [array,setArray] = useState([])
 const [user,setUser] = useState({
   email:"",
@@ -42,9 +45,9 @@ function handleOnRowsScrollEnd (){
   }
 }
 
-async function charactersAPI(){
+async function charactersAPI(apiKey,hash){
   try {
-    const response = await fetch(`https://gateway.marvel.com:443/v1/public/characters?ts=1&limit=100&apikey=fe17a323735b204af39980cf98d3cc2b&hash=95c89371b5df814bf30876b9a108be11`)
+    const response = await fetch(`https://gateway.marvel.com:443/v1/public/characters?ts=1&limit=100&apikey=${apiKey}&hash=${hash}`)
     const result = await response.json();
     setArray(result.data.results)
     setScrollData(result.data.results.slice(0,12))
@@ -93,11 +96,9 @@ async function handleLogin(e){
   }
 }
 
-
-
 useEffect(()=>{
-  charactersAPI()
-},[])
+  charactersAPI(apiKey,hash)
+},[apiKey,hash])
 
   return (
     <Fragment>

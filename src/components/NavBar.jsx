@@ -6,12 +6,15 @@ import { useState } from 'react';
 export default function NavBar (){
 
     const navigate = useNavigate()
-    const data = JSON.parse(localStorage.getItem('userInfo'));
     const [isOpen,setIsOpen] = useState(false)
-
+    const [user,setUser] =useState(JSON.parse(localStorage.getItem('userInfo')))
 
     function handleOut(e){
         e.preventDefault()
+        setUser({
+            email:"",
+            password:""
+          })
         window.localStorage.clear();
         navigate("/",{replace:true})
     }
@@ -27,9 +30,9 @@ export default function NavBar (){
                 <h3 onClick={(e)=> setIsOpen(!isOpen)} id={isOpen ? style.Link2 : style.Link}>User Info</h3>
             </div>
             <div className={isOpen ? style.Opened : style.Closed}>
-                {data ? 
+                {user ? 
                     <div className={style.UserData}>
-                    <span>Email: {data.email}</span>
+                    <span>Email: {user.email}</span>
                     <button onClick={handleOut}>Sign out</button>
                     </div>
                 : 
